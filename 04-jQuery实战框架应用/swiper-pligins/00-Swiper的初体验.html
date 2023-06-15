@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1.引入swiper的css样式 -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.css">   -->
+  <link rel="stylesheet" href="./libs/swiper-bundle.css">  
+  <style>
+    .swiper{
+      width: 750px;
+      height: 400px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- 编写轮播图的页面布局 -->
+  <div class="swiper my-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="./img/banner0_sm.png" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="./img/banner1_sm.png" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="./img/banner2_sm.png" alt="">
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="./libs/jquery/jquery.3.6.0-slim.js"></script>
+  <!-- 2.引入swiper的js文件 -->
+  <!-- <script src="https://unpkg.com/swiper@8/swiper-bundle.js"> </script>  -->
+  <script src="./libs/swiper-bundle.js"> </script> 
+  <script>
+    $(function() {
+      // 1.初始化的轮播图
+      var mySwiper = new Swiper('.my-swiper', {})
+        
+    })
+  </script>
+</body>
+</html>

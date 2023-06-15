@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 1.引入swiper的css样式 -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.css">   -->
+  <link rel="stylesheet" href="./libs/swiper-bundle.css">  
+  <style>
+    .swiper{
+      width: 750px;
+      height: 400px;
+    }
+
+    .swiper{
+      --swiper-theme-color: red;
+      /* --swiper-pagination-color: red;
+      --swiper-navigation-color: red; */
+      --swiper-navigation-size: 70px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- 编写轮播图的页面布局 -->
+  <div class="swiper my-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="./img/banner0_sm.png" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="./img/banner1_sm.png" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="./img/banner2_sm.png" alt="">
+      </div>
+    </div>
+    <!-- 分页器的布局 -->
+    <div class="swiper-pagination my-pagination"></div> 
+    <div class="swiper-button-prev my-btn-pre"></div>
+    <div class="swiper-button-next my-btn-next"></div>
+  </div>
+
+  
+  <script src="./libs/jquery/jquery.3.6.0-slim.js"></script>
+  <!-- 2.引入swiper的js文件 -->
+  <!-- <script src="https://unpkg.com/swiper@8/swiper-bundle.js"> </script>  -->
+  <script src="./libs/swiper-bundle.js"> </script> 
+  <script>
+    $(function() {
+      // 1.初始化的轮播图
+      var mySwiper = new Swiper('.my-swiper', {
+        // 1.自动轮播
+        // autoplay: true
+        autoplay: {
+          delay: 2000
+        },
+
+        // 2.无限滚动
+        loop: true,
+
+        // 3.分页器
+        pagination: {
+          el: '.my-pagination',
+          // 6.分页器的类型
+          // type: 'bullets',
+          // type: 'fraction',
+          // type : 'progressbar',
+        },
+
+        // 4.前进和后退按钮
+        navigation: {
+          prevEl: '.my-btn-pre',
+          nextEl: '.my-btn-next',
+          
+        },
+
+        // 5.切换的速度
+        speed: 1000,
+
+        // 6.切换效果
+        // effect: 'slide',
+        // effect: 'fade',
+        // effect: 'cube',
+        effect: 'flip',
+
+
+
+
+
+      })
+        
+    })
+  </script>
+</body>
+</html>
