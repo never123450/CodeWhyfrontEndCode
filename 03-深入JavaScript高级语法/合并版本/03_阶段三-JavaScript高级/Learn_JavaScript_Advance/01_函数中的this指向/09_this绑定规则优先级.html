@@ -46,11 +46,11 @@
     // 3.1. new不可以和apply/call一起使用
 
     // 3.2. new优先级高于bind
-    // function foo() {
-    //   console.log("foo:", this)
-    // }
-    // var bindFn = foo.bind("aaa")
-    // new bindFn()
+    function foo() {
+      console.log("foo:", this)
+    }
+    var bindFn = foo.bind("aaa")
+    new bindFn()
 
 
     // 4.bind/apply优先级

@@ -18,7 +18,7 @@
     // foo()
     // console.log(message)
 
-    // 2.发现静默错误
+    // 2.发现静默错误(不报错也无任何反应)
     var obj = {
       name: "why"
     }
@@ -46,6 +46,7 @@
     // eval(`var message = "Hello World"`)
     // console.log(message)
 
+    // 在严格模式下不能使用 with
     // 6.严格模式下, this是不会转成对象类型的
     function foo() {
       console.log(this)

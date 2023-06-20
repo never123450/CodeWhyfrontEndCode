@@ -23,13 +23,13 @@
     console.log(info.name, info.address)
     console.log(info)
 
-    // 1.hasOwnProperty
+    // 1.hasOwnProperty 属于自己的属性
     // console.log(info.hasOwnProperty("name")) // false
     // console.log(info.hasOwnProperty("address")) // true
 
-    // 2.in操作符
-    console.log("name" in info)
-    console.log("address" in info)
+    // 2.in操作符 包括对象的原型上
+    console.log("name" in info) // true
+    console.log("address" in info) // true
     // 注意: for in遍历不仅仅是自己对象上的内容, 也包括原型对象上的内容
     for (var key in info) {
       console.log(key)
@@ -48,7 +48,7 @@
     console.log(stu instanceof Object)
     console.log(stu instanceof Array)
 
-    // 4.isPrototypeOf
+    // 4.isPrototypeOf 用于检测某个对象是否出现在某个实例对象的原型链上
     console.log(Student.prototype.isPrototypeOf(stu))
     console.log(Person.prototype.isPrototypeOf(stu))
     

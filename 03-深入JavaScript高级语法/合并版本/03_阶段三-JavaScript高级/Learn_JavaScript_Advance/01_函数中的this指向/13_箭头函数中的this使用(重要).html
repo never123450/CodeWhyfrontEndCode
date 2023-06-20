@@ -30,18 +30,17 @@
     // var message = "global message"
 
     // 3.this的查找规则
-    // var obj = {
-    //   name: "obj",
-    //   foo: () => {
-    //     var bar = () => {
-    //       console.log("bar:", this)
-    //     }
-    //     return bar
-        
-    //   }
-    // }
-    // var fn = obj.foo()
-    // fn.apply("bbb")
+    var obj = {
+      name: "obj",
+      foo: () => {
+        var bar = () => {
+          console.log("bar:", this)
+        }
+        return bar
+      }
+    }
+    var fn = obj.foo()
+    fn.apply("bbb")
 
     
 
