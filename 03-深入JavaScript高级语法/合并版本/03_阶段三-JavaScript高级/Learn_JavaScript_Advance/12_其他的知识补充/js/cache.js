@@ -7,10 +7,7 @@ class Cache {
     if (!value) {
       throw new Error("value error: value必须有值!")
     }
-
-    if (value) {
-      this.storage.setItem(key, JSON.stringify(value))
-    }
+    this.storage.setItem(key, JSON.stringify(value))
   }
 
   getCache(key) {

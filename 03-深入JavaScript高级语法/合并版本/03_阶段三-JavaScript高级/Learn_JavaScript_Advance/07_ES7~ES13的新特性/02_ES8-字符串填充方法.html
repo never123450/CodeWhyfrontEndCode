@@ -21,6 +21,7 @@
     // 2.应用场景二: 对一些敏感数据格式化
     let cardNumber = "132666200001018899"
     const sliceNumber = cardNumber.slice(-4)
+    console.log(sliceNumber)
     cardNumber = sliceNumber.padStart(cardNumber.length, "*")
     const cardEl = document.querySelector(".card")
     cardEl.textContent = cardNumber
