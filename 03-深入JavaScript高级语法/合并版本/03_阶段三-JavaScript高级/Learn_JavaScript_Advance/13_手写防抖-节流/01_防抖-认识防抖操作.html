@@ -15,7 +15,7 @@
   <!-- CDN引入: 网络的js文件 -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.4/underscore-umd-min.js"></script> -->
   <!-- 本地引入: 下载js文件, 并且本地引入 -->
-  <script src="./js/underscore.js"></script>
+  <script src="./js/underscore.js">console.log('11111不会输出1111111')</script>
   <script>
     // 1.获取input元素
     const inputEl = document.querySelector("input")
@@ -30,7 +30,7 @@
     let counter = 1
     inputEl.oninput = _.debounce(function() {
       console.log(`发送网络请求${counter++}:`, this.value)
-    }, 3000)
+    }, 1000)
 
   </script>
 
