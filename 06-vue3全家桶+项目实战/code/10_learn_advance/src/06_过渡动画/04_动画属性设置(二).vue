@@ -5,7 +5,7 @@
     </div>
 
     <!-- mode属性掌握 -->
-    <transition name="why" mode="out-in">
+    <transition name="xu" mode="out-in">
       <h2 v-if="isShow">哈哈哈</h2>
       <h2 v-else>呵呵呵</h2>
     </transition>
@@ -26,29 +26,29 @@ h2 {
 }
 
 /* transition */
-.why-enter-from,
-.why-leave-to {
+.xu-enter-from,
+.xu-leave-to {
   opacity: 0;
 }
 
-.why-enter-to,
-.why-leave-from {
+.xu-enter-to,
+.xu-leave-from {
   opacity: 1;
 }
 
 
-.why-enter-active {
-  animation: whyAnim 2s ease;
+.xu-enter-active {
+  animation: xuAnim 2s ease;
   transition: opacity 2s ease;
 }
 
-.why-leave-active {
-  animation: whyAnim 2s ease reverse;
+.xu-leave-active {
+  animation: xuAnim 2s ease reverse;
   transition: opacity 2s ease;
 }
 
 
-@keyframes whyAnim {
+@keyframes xuAnim {
   0% {
     transform: scale(0);
   }

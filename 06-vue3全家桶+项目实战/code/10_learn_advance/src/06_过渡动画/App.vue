@@ -4,10 +4,10 @@
     <button @click="removeNumber">删除数字</button>
     <button @click="shuffleNumber">打乱数字</button>
     
-    <transition-group tag="div" name="why">
-      <template v-for="item in nums" :key="item">
+    <transition-group tag="div" name="xu">
+      <div v-for="item in nums" :key="item">
         <span>{{ item }}</span>
-      </template>
+      </div>
     </transition-group>
   </div>
 </template>
@@ -43,30 +43,30 @@ span {
   display: inline-block;
 }
 
-.why-enter-from,
-.why-leave-to {
+.xu-enter-from,
+.xu-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
 
-.why-enter-to,
-.why-leave-from {
+.xu-enter-to,
+.xu-leave-from {
   opacity: 1;
   transform: translateY(0);
 }
 
-.why-enter-active,
-.why-leave-active {
+.xu-enter-active,
+.xu-leave-active {
   transition: all 2s ease;
 }
 
-.why-leave-active {
+.xu-leave-active {
   position: absolute;
 }
 
 
 /* 针对其他移动的阶段需要的动画 */
-.why-move {
+.xu-move {
   transition: all 2s ease;
 }
 

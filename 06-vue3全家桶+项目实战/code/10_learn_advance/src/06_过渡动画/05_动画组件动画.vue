@@ -5,7 +5,7 @@
     </div>
 
     <!-- mode属性掌握 -->
-    <transition name="why" mode="out-in" appear="">
+    <transition name="xu" mode="out-in" appear="">
       <component :is=" isShow ? 'home': 'about'"></component>
     </transition>
   </div>
@@ -36,29 +36,29 @@ h2 {
 }
 
 /* transition */
-.why-enter-from,
-.why-leave-to {
+.xu-enter-from,
+.xu-leave-to {
   opacity: 0;
 }
 
-.why-enter-to,
-.why-leave-from {
+.xu-enter-to,
+.xu-leave-from {
   opacity: 1;
 }
 
 
-.why-enter-active {
-  animation: whyAnim 2s ease;
+.xu-enter-active {
+  animation: xuAnim 2s ease;
   transition: opacity 2s ease;
 }
 
-.why-leave-active {
-  animation: whyAnim 2s ease reverse;
+.xu-leave-active {
+  animation: xuAnim 2s ease reverse;
   transition: opacity 2s ease;
 }
 
 
-@keyframes whyAnim {
+@keyframes xuAnim {
   0% {
     transform: scale(0);
   }
