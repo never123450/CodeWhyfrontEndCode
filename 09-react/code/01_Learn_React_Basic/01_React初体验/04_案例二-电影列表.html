@@ -31,21 +31,26 @@
 
       render() {
         // 1.对movies进行for循环
-        // const liEls = []
-        // for (let i = 0; i < this.state.movies.length; i++) {
-        //   const movie = this.state.movies[i]
-        //   const liEl = <li>{movie}</li>
-        //   liEls.push(liEl)
-        // }
+        const liEls = []
+        for (let i = 0; i < this.state.movies.length; i++) {
+          const movie = this.state.movies[i]
+          const liEl = <li>{movie}</li>
+          liEls.push(liEl)
+        }
 
         // 2.movies数组 => liEls数组
-        // const liEls = this.state.movies.map(movie => <li>{movie}</li>)
+        const liEls1 = this.state.movies.map(movie => <li>{movie}</li>)
 
         return (
           <div>
             <h2>电影列表</h2>
             <ul>
+              {liEls}
+              -----------------
               {this.state.movies.map(movie => <li>{movie}</li>)}
+              -----------------
+              {liEls1}
+              { /* JSX的注释写法 */ }
             </ul>
           </div>
         )
