@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import useLocalStorage from './hooks/useLocalStorage'
 
+// localStorage 数据存储
 const App = memo(() => {
   // 通过key, 直接从localStorage中获取一个数据
   // const [token, setToken] = useState(localStorage.getItem("token"))
