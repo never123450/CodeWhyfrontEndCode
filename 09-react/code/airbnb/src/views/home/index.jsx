@@ -1,31 +1,50 @@
 import React, { memo, useEffect } from 'react'
-import hyRequest from '@/services'
-import { useState } from 'react'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+
+import { fetchHomeDataAction } from '@/store/modules/home'
+import HomeBanner from './c-cpns/home-banner'
+import { HomeWrapper } from './style'
+import HomeSectionV1 from './c-cpns/home-section-v1'
+import HomeSectionV2 from './c-cpns/home-section-v2'
+import { isEmptyO } from '@/utils'
+import HomeLongfor from './c-cpns/home-longfor'
+import HomeSectionV3 from './c-cpns/home-section-v3'
 
 const Home = memo(() => {
-  // 定义状态
-  const [ highScore, setHighScore ] = useState({})
+  /** 从redux中获取数据 */
+  const { goodPriceInfo, highScoreInfo, discountInfo, recommendInfo, longforInfo, plusInfo } = useSelector((state) => ({
+    goodPriceInfo: state.home.goodPriceInfo,
+    highScoreInfo: state.home.highScoreInfo,
+    discountInfo: state.home.discountInfo,
+    recommendInfo: state.home.recommendInfo,
+    longforInfo: state.home.longforInfo,
+    plusInfo: state.home.plusInfo
+  }), shallowEqual)
 
-  // 网络请求的代码
+  /** 派发异步的事件: 发送网络请求 */
+  const dispatch = useDispatch()
   useEffect(() => {
-    hyRequest.get({ url: "/home/highscore" }).then(res => {
-      console.log(res)
-      setHighScore(res)
-    })
-  }, [])
+    dispatch(fetchHomeDataAction("xxxx"))
+  }, [dispatch])
 
   return (
-    <div>
-      <h2>{highScore.title}</h2>
-      <h4>{highScore.subtitle}</h4>
-      <ul>
-        {
-          highScore.list?.map((item) => {
-            return <li key={item.id}>{item.name}</li>
-          })
-        }
-      </ul>
-    </div>
+    <HomeWrapper>
+      <HomeBanner/>
+      <div className='content'>
+        {/* 折扣数据 */}
+        {/* <div className='discount'>
+          <SectionHeader title={discountInfo.title} subtitle={discountInfo.subtitle}/>
+          <SectionTabs tabNames={tabNames} tabClick={tabClickHandle}/>
+          <SectionRooms roomList={discountInfo.dest_list?.[name]} itemWidth="33.33333%"/>
+        </div> */}
+        { isEmptyO(discountInfo) && <HomeSectionV2 infoData={discountInfo}/>}
+        { isEmptyO(recommendInfo) && <HomeSectionV2 infoData={recommendInfo}/>}
+        { isEmptyO(longforInfo) && <HomeLongfor infoData={longforInfo}/> }
+        { isEmptyO(goodPriceInfo) && <HomeSectionV1 infoData={goodPriceInfo}/> }
+        { isEmptyO(highScoreInfo) && <HomeSectionV1 infoData={highScoreInfo}/> }
+        { isEmptyO(plusInfo) && <HomeSectionV3 infoData={plusInfo}/> }
+      </div>
+    </HomeWrapper>
   )
 })
 
