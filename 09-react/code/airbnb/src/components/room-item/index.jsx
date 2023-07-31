@@ -22,7 +22,7 @@ const RoomItem = memo((props) => {
         <div className='price'>¥{itemData.price}/晚</div>
 
         <div className='bottom'>
-          <Rating 
+          <Rating
             value={itemData.star_rating ?? 5}
             precision={0.1}
             readOnly 
