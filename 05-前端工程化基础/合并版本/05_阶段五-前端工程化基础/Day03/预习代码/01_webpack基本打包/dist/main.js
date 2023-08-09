@@ -1,1 +1,0 @@
-(()=>{console.log("why"),console.log("Hello World");const o=o=>{console.log(o.length)};console.log("foo function execution"),o("why"),o("Hello World")})();
