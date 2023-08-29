@@ -1,0 +1,120 @@
+<div style="position: relative; width: 200px; height: 200px; background-color: #ccc;">
+  <div style="position: absolute; top: 50px; left: 50px; width: 100px; height: 100px; background-color: #f00;"></div>
+  <div style="position: relative; top: 20px; left: 20px; width: 50px; height: 50px; background-color: #00f;"></div>
+</div>
+
+<script>
+  // 浅拷贝
+   function clone(source) {
+      if (!(typeof source === 'object' && source !== null)) {
+        return source
+      }
+      const target = {} // 只考虑Object类型
+      for (const [key, value] of Object.entries(source)) {
+        target[key] = value
+      }
+      return target
+    }
+    let obj = {
+      a: 10,
+      b: {
+        m: 20
+      }
+    }
+    const cloneObj = clone(obj)
+    cloneObj.a = 20
+    cloneObj.b.m = 30
+    console.log(obj) // { a: 10, b: { m: 30 } }
+    console.log(cloneObj) // { a: 20, b: { m: 30 } }
+
+    // 深拷贝,递归
+    function cloneDeep(source) {
+      // 如果输入的为基本类型，直接返回
+      if (!(typeof source === 'object' && source !== null)) {
+        return source
+      }
+      // 判断输入的为数组还是对象，进行对应的创建
+      const target = Array.isArray(source) ? [] : {}
+
+      for (const [key, value] of Object.entries(source)) {
+        // 此处应该去除一些内置对象，根据需要可以自己去除，本初只去除了RegExp对象
+        if (typeof value === 'object' && value !== null && !(value instanceof RegExp)) {
+          target[key] = cloneDeep(value)
+        } else {
+          target[key] = value
+        }
+      }
+      return target
+    }
+     obj = {
+      a: 10,
+      b: undefined,
+      c: /\w/g,
+      d: function() {
+        return true
+      },
+      e: {
+        m: 20,
+        n: 30
+      }
+    }
+    const result = cloneDeep(obj)
+    result.e.m = 100
+    console.log('拷贝前：', obj)
+    console.log('拷贝后：', result)
+
+    // 深拷贝 循环
+    function cloneDeep(source) {
+      if (!(typeof source === 'object' && source !== null)) {
+        return source
+      }
+      const root = Array.isArray(source) ? [] : {}
+      // 定义一个栈
+      const loopList = [{
+        parent: root,
+        key: undefined,
+        data: source
+      }]
+      while (loopList.length > 0) {
+        // 深度优先
+        const node = loopList.pop()
+        const parent = node.parent
+        const key = node.key
+        const data = node.data
+        // 初始化赋值目标，key为undefined则拷贝到父元素，否则拷贝到子元素
+        let res = parent
+        if (typeof key !== 'undefined') {
+          res = parent[key] = Array.isArray(data) ? [] : {}
+        }
+        for (const [childKey, value] of Object.entries(data)) {
+          if (typeof value === 'object' && value !== null && !(value instanceof RegExp)) {
+            loopList.push({
+              parent: res,
+              key: childKey,
+              data: value
+            })
+          } else {
+            res[childKey] = value
+          }
+        }
+      }
+      return root
+    }
+     obj = {
+      a: 10,
+      b: undefined,
+      c: /\w/g,
+      d: function() {
+        return true
+      },
+      e: {
+        m: 20,
+        n: 30
+      }
+    }
+    const result = cloneDeep(obj)
+    result.e.m = 100
+    console.log('拷贝前：', obj)
+    console.log('拷贝后：', result)
+
+</script>
