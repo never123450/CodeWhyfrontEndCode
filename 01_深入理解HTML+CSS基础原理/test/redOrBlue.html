@@ -1,0 +1,17 @@
+
+<style>
+  /* 谁在下面就显示谁 */
+.blue {
+  color: blue
+}
+.red {
+  color: red;
+}
+</style>
+
+<body>
+  <!-- 障眼法,和前后顺序无关,和 css 中定义的顺序有关 -->
+  <div class="red blue">123</div>
+  <div class="blue red">123</div>
+</body>
+
