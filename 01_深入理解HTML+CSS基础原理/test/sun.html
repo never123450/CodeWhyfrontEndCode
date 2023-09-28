@@ -1,0 +1,94 @@
+<body>
+  <!-- html -->
+  <div class="sun">
+    <div class="sun-light sl1"></div>
+    <div class="sun-light sl2"></div>
+    <div class="sun-light sl3"></div>
+    <div class="sun-light sl4"></div>
+    <div class="sun-light sl5"></div>
+    <div class="sun-light sl6"></div>
+    <div class="sun-light sl7"></div>
+    <div class="sun-light sl8"></div>
+  </div>
+</body>
+<style>
+ .sun {
+      margin: 200px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: red;
+      box-shadow: 0 0 21px #fe9e9e;
+      position: relative;
+    }
+    .sun::before {
+      width: 0;
+      height: 500px;
+      content: '';
+      border-left: 1px solid blue;
+      position: absolute;
+      top: -150px;
+      left: 100px;
+      z-index: 100;
+      transform: rotate(45deg);
+    }
+    .sun::after {
+      width: 500px;
+      height: 0;
+      content: '';
+      border-top: 1px solid blue;
+      position: absolute;
+      top: 100px;
+      left: -150px;
+      z-index: 100;
+      transform: rotate(45deg);
+    }
+  /* // 光线的宽高据 sun-body 而动 */
+    .sun-light {
+      width: 100px;
+      height: 6px;
+      background: yellow;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .sl1 {
+      left: 50px;
+      top: -58px;
+      transform: rotate(90deg);
+    }
+    .sl2 {
+      top: -14px;
+      left: 160px;
+      transform: rotate(-45deg);
+    }
+    .sl3 {
+      top: 97px;
+      left: 205px;
+    }
+    .sl4 {
+      top: 206px;
+      left: 160px;
+      transform: rotate(45deg);
+    }
+    .sl5 {
+      top: 252px;
+      left: 50px;
+      transform: rotate(90deg);
+    }
+    .sl6 {
+      top: 206px;
+      left: -60px;
+      transform: rotate(-45deg);
+    }
+    .sl7 {
+      top: 97px;
+      left: -105px;
+    }
+    .sl8 {
+      top: -14px;
+      left: -60px;
+      transform: rotate(45deg);
+    }
+</style>
+   
