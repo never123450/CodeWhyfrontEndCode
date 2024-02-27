@@ -1,10 +1,46 @@
-<div id="box"></div>
+
+
+<div class="father">
+  <div class="son"></div>
+</div>
+
 <style>
-  #box{
-    width: 200px;
-    height: 100px;
-    margin: 15px 20px;
-    padding: 10px 5px;
-    border: 5px solid #ccc;
+  .father {
+    width: 300px;
+    height: 300px;
+    background: #3cc8b4;
+    opacity: 0.5;
   }
+  .son {
+    opacity: 1;
+    width: 200px;
+    height: 200px;
+    background: red;
+  }
+/* css */
+.footer {
+  width: 300px;
+  height: 20px;
+  display: flex;
+  overflow: hidden;
+}
+.left {
+  background: #3cc8b4;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 50px;
+}
+.right {
+  background: #9bc;
+  max-width: 250px;
+}
+.right-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  direction: rtl;
+}
+
 </style>
