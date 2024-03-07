@@ -1,0 +1,52 @@
+<head> 
+</head> 
+<body> 
+  <!-- 同一个 BFC 下外边距会发生折叠 -->
+  <!-- <div></div>
+  <div></div>  -->
+  <!-- /* div{ 
+    width: 100px; 
+    height: 100px; 
+    background: lightblue; 
+    margin: 100px; 
+  } */ -->
+
+
+  <!-- 想要避免外边距的重叠,可以将其放在不同的 BFC 容器中 -->
+  <!-- <div class="container"> 
+    <p></p> 
+  </div> 
+  <div class="container"> 
+    <p></p> 
+  </div> -->
+
+  <!-- .container { 
+    overflow: hidden; 
+  } 
+  p { 
+    width: 100px; 
+    height: 100px; 
+    background: lightblue; 
+    margin: 100px; 
+  } -->
+
+  <!-- BFC 可以包含浮动的元素(清除浮动) -->
+  <!-- <div style="border: 1px solid #000;"> 
+    <div style="width: 100px;height: 100px;background: #eee;float: left;"></div> 
+  </div> -->
+
+  <!-- <div style="border: 1px solid #000;overflow: hidden"> 
+    <div style="width: 100px;height: 100px;background: #eee;float: left;"></div> 
+  </div> -->
+
+  <!-- BFC 可以阻止元素浮动元素覆盖 -->
+  <!-- 这时候其实第二个元素有部分被浮动元素所覆盖，(但是文本信息不会被浮动元素所覆盖) 如果想避免元素被覆盖，可触第二个元素的 BFC 特性，在第二个元素中加入 overflow: hidden，就会变成： -->
+  <div style="height: 100px;width: 100px;float: left;background: lightblue">我是一个左浮动的元素</div> 
+  <div style="width: 200px; height: 200px;background: #eee;overflow: hidden">我是一个没有设置浮动, 也没有触发 BFC 元素, width: 200px; height:200px; background: #eee;</div>
+</body>
+<style>
+
+
+
+</style>
+
